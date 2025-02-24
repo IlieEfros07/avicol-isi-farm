@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Avicol-ISI-Farm.props" />
+</Project>

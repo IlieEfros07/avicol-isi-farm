@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container-fluid py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow">
+                <div class="card-body p-4">
+                    <h1 class="card-title text-center mb-4">Register</h1>
+                    <form method="POST" asp-action="RegisterUser" asp-controller="Auth">
+                        <div class="mb-3">
+                            <label for="Login" class="form-label">Nume</label>
+                            <input type="text" class="form-control" id="name" name="Name" placeholder="Nume" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="Email" placeholder="Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone">Număr de telefon:</label>
+                            <input type="text" id="phone" name="phone"  required placeholder="Ex: 0712345678">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Address" class="form-label">Adresa</label>
+                            <input type="text" class="form-control" id="address" name="Address" placeholder="Adress/Localitatea" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Password" class="form-label">Parola</label>
+                            <input type="password" class="form-control" id="password" name="Password" placeholder="Parola" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="password2" class="form-label">Confirma Parola</label>
+                            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirma Parola" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+                    </form>
+                    @if (ViewBag.Message != null)
+                    {
+                        <div class="alert alert-danger mb-3">
+                            @ViewBag.Message
+                        </div>
+                    }
+                    <div class="text-center mt-3">
+                        <a asp-action="Login" asp-controller="Auth" class="text-decoration-none">Ai deja un cont? Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
