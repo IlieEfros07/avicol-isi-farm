@@ -2350,11 +2350,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\dev\\StepIT\\C#\\Avicol-ISI-Farm\\Avicol-ISI-Farm\\Avicol-ISI-Farm.csproj",
+      "projectUniqueName": "C:\\dev\\Avicol-ISI-Farm\\Avicol-ISI-Farm\\Avicol-ISI-Farm.csproj",
       "projectName": "Avicol-ISI-Farm",
-      "projectPath": "C:\\dev\\StepIT\\C#\\Avicol-ISI-Farm\\Avicol-ISI-Farm\\Avicol-ISI-Farm.csproj",
+      "projectPath": "C:\\dev\\Avicol-ISI-Farm\\Avicol-ISI-Farm\\Avicol-ISI-Farm.csproj",
       "packagesPath": "C:\\Users\\rutiera\\.nuget\\packages\\",
-      "outputPath": "C:\\dev\\StepIT\\C#\\Avicol-ISI-Farm\\Avicol-ISI-Farm\\obj\\",
+      "outputPath": "C:\\dev\\Avicol-ISI-Farm\\Avicol-ISI-Farm\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

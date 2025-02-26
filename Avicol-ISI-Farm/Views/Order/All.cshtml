@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Avicol_ISI_Farm.Models.Order>
+@{
+    ViewData["Title"] = "All Orders";
+}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>All Orders</h1>
+        <a asp-action="Add" asp-controller="Order" class="btn btn-primary">
+            <i class="bi bi-plus-circle me-2"></i>Add New Order
+        </a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>ID</th>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Any())
+                        {
+                            @foreach (var order in Model)
+                            {
+                                <tr>
+                                    <td>@order.Id</td>
+                                    <td>@order.CreatedAt.ToString("MM/dd/yyyy")</td>
+                                    <td>@order.User.Name</td>
+                                    <td>
+                                        @if (order.OrderProducts.Any())
+                                        {
+                                            @order.OrderProducts.First().Product.Name
+                                            @if (order.OrderProducts.Count > 1)
+                                            {
+                                                <span class="badge bg-secondary ms-2">+@(order.OrderProducts.Count - 1)</span>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (order.OrderProducts.Any())
+                                        {
+                                            @order.OrderProducts.First().Quantity
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (order.OrderProducts.Any())
+                                        {
+                                            var total = order.OrderProducts.Sum(op => op.PriceAtOrder * op.Quantity);
+                                            <span>MDL @total.ToString("F2")</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-@GetStatusColor(order.Status)">@order.Status</span>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="8" class="text-center py-4">
+                                    <div class="d-flex flex-column align-items-center">
+                                        <i class="bi bi-inbox text-muted mb-3" style="font-size: 2rem;"></i>
+                                        <h5 class="text-muted">No orders found</h5>
+                                        <a asp-action="Add" asp-controller="Order" class="btn btn-sm btn-primary mt-2">
+                                            Create your first order
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@functions {
+    string GetStatusColor(string status)
+    {
+        return status?.ToLower() switch
+        {
+            "pending" => "warning",
+            "processing" => "info",
+            "shipped" => "primary",
+            "delivered" => "success",
+            "cancelled" => "danger",
+            _ => "secondary"
+        };
+    }
+}

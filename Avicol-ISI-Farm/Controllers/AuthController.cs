@@ -10,6 +10,8 @@ namespace Avicol_ISI_Farm.Controllers
     {
         private readonly AppDbContext _context;
 
+        bool _authenticated=false;
+
         public AuthController(AppDbContext context)
         {
             _context = context;
@@ -114,6 +116,8 @@ namespace Avicol_ISI_Farm.Controllers
             }
 
             HttpContext.Session.SetString("UserId", user.Id.ToString());
+            HttpContext.Session.SetString("_authenticated", "true");
+            _authenticated = true;
 
             return RedirectToAction("Index", "Home");
         }

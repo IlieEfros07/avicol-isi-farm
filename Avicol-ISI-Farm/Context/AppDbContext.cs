@@ -10,7 +10,7 @@ namespace Avicol_ISI_Farm.Context
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Orders> Orders { get; set; }
+        public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<OrderProduct> OrderProducts { get; set; }
 

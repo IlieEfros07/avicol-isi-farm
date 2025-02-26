@@ -1,0 +1,82 @@
+﻿@model Avicol_ISI_Farm.Models.Order
+@{
+    ViewData["Title"] = "Add Order";
+}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Add Order</h1>
+    <form method="POST" asp-action="SaveOrder" asp-controller="Order" class="col-md-6 offset-md-3">
+        <div class="mb-3">
+            <label for="productId" class="form-label">Product</label>
+            <select class="form-control" id="productId" name="productId" required>
+                <option value="">-- Select a product --</option>
+                @foreach (var product in ViewBag.Products)
+                {
+                    <option value="@product.Id" data-price="@product.Price" data-stock="@product.Quantity">
+                        @product.Name - $@product.Price - Stock: @product.Quantity
+                    </option>
+                }
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" class="form-control" id="quantity" name="quantity" min="1" value="1" required>
+            <small id="stockWarning" class="text-danger d-none">Warning: Quantity exceeds available stock!</small>
+        </div>
+        <div class="mb-3">
+            <label for="customer" class="form-label">Customer</label>
+            <input type="text" class="form-control" id="customer" name="customer" placeholder="Enter customer name" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Order Total</label>
+            <div class="input-group">
+                <span class="input-group-text">MDL</span>
+                <input type="text" class="form-control" id="orderTotal" readonly value="0.00">
+            </div>
+        </div>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">Add Order</button>
+        </div>
+    </form>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger mt-3">
+            @ViewBag.Message
+        </div>
+    }
+    <div class="text-center mt-3">
+        <a asp-action="All" asp-controller="Order" class="btn btn-link">See all orders</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $("#productId, #quantity").change(function() {
+                updateOrderTotal();
+                checkStock();
+            });
+
+            function updateOrderTotal() {
+                const selectedOption = $("#productId option:selected");
+                const price = parseFloat(selectedOption.data("price")) || 0;
+                const quantity = parseInt($("#quantity").val()) || 0;
+                const total = price * quantity;
+
+                $("#orderTotal").val(total.toFixed(2));
+            }
+
+            function checkStock() {
+                const selectedOption = $("#productId option:selected");
+                const stock = parseInt(selectedOption.data("stock")) || 0;
+                const quantity = parseInt($("#quantity").val()) || 0;
+
+                if (quantity > stock) {
+                    $("#stockWarning").removeClass("d-none");
+                } else {
+                    $("#stockWarning").addClass("d-none");
+                }
+            }
+        });
+    </script>
+}
