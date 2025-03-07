@@ -55,7 +55,7 @@
                                         @if (order.OrderProducts.Any())
                                         {
                                             var total = order.OrderProducts.Sum(op => op.PriceAtOrder * op.Quantity);
-                                            <span>MDL @total.ToString("F2")</span>
+                                            <span>MDL @total.ToString("0.00")</span>
                                         }
                                     </td>
                                     <td>

@@ -12,7 +12,7 @@
                 @foreach (var product in ViewBag.Products)
                 {
                     <option value="@product.Id" data-price="@product.Price" data-stock="@product.Quantity">
-                        @product.Name - $@product.Price - Stock: @product.Quantity
+                        @product.Name - MDL @product.Price.ToString("0.00") - Stock: @product.Quantity
                     </option>
                 }
             </select>
@@ -20,7 +20,7 @@
         <div class="mb-3">
             <label for="quantity" class="form-label">Quantity</label>
             <input type="number" class="form-control" id="quantity" name="quantity" min="1" value="1" required>
-            <small id="stockWarning" class="text-danger d-none">Warning: Quantity exceeds available stock!</small>
+            <small id="stockWarning" class="text-danger d-none">Warning!!! Quantity exceeds available stock!!!</small>
         </div>
         <div class="mb-3">
             <label for="customer" class="form-label">Customer</label>

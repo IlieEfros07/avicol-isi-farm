@@ -113,6 +113,7 @@ namespace Avicol_ISI_Farm.Controllers
                 .Select(u => u.Address)
                 .FirstOrDefaultAsync();
 
+            decimal totalPrice= quantity*product.Price;
 
             var newOrder = new Order
             {
@@ -120,7 +121,8 @@ namespace Avicol_ISI_Farm.Controllers
                 UserId = customerO.Id,
                 User = customerO,
                 Adress=userAddress,
-                Status = status
+                TotalPrice= totalPrice,
+                Status="Pending"
             };
 
             _context.Orders.Add(newOrder);
