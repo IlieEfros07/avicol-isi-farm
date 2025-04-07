@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Avicol-ISI-Farm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52857aeda46cdee50a9546751d93ba4d9443d0aa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed42b67392d891632049a653832e0195f57632d7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Avicol-ISI-Farm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Avicol-ISI-Farm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

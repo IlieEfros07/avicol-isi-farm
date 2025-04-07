@@ -1,8 +1,164 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Avicol ISI Farm - Producător Avicol din Moldova";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- Hero Section -->
+<section class="hero-section py-5 bg-primary text-white mb-30">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 order-md-1 order-2">
+                <h1 class="display-4 fw-bold mb-4">Ouă Proaspete și Carne de Pasăre de Calitate Superioară</h1>
+                <p class="lead mb-4">De la ferma noastră din Moldova direct pe masa dumneavoastră</p>
+                <a asp-controller="Order" asp-action="Add" class="btn btn-light btn-lg">
+                    <i class="fas fa-shopping-cart me-2"></i>Comandă Acum
+                </a>
+            </div>
+            <div class="col-md-6 order-md-2 order-1 mb-4 mb-md-0">
+                <img src="/images/hero-oua-proaspete.jpg" alt="Ouă proaspete moldovenești" class="img-fluid rounded-3 shadow-lg">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Valori Principale -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div class="card border-0 shadow h-100">
+                    <div class="card-body">
+                        <i class="fas fa-feather fa-3x text-primary mb-3"></i>
+                        <h3>Păsări Sănătoase</h3>
+                        <p>Creștem păsări în condiții optime, cu acces permanent la aer liber</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow h-100">
+                    <div class="card-body">
+                        <i class="fas fa-seedling fa-3x text-primary mb-3"></i>
+                        <h3>Hrană Naturală</h3>
+                        <p>Nutreț 100% natural fără OGM, produs local</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow h-100">
+                    <div class="card-body">
+                        <i class="fas fa-truck fa-3x text-primary mb-3"></i>
+                        <h3>Livrare Rapidă</h3>
+                        <p>Livrăm în toată Moldova în maxim 24 de ore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Produse Highlight -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5 text-primary">Produsele Noastre</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card product-card border-0 shadow">
+                    <img src="/images/oua-proaspete.jpg" class="card-img-top" alt="Ouă proaspete">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Ouă Proaspete</h4>
+                        <p class="text-muted">Colectate zilnic, ambalate ecologic</p>
+                        <a asp-controller="Product" asp-action="Details" asp-route-id="1" class="btn btn-primary">
+                            Detalii <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card product-card border-0 shadow">
+                    <img src="/images/pui-organic.jpg" class="card-img-top" alt="Carne de pui">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Carne de Pui</h4>
+                        <p class="text-muted">Crescut natural, fără antibiotice</p>
+                        <a asp-controller="Product" asp-action="Details" asp-route-id="2" class="btn btn-primary">
+                            Detalii <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card product-card border-0 shadow">
+                    <img src="/images/oua-colorate.jpg" class="card-img-top" alt="Ouă colorate naturale">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Ouă Colorate Natural</h4>
+                        <p class="text-muted">Colorate cu pigmenți naturali</p>
+                        <a asp-controller="Product" asp-action="Details" asp-route-id="3" class="btn btn-primary">
+                            Detalii <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistici -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row text-center g-4">
+            <div class="col-md-3">
+                <div class="display-4 fw-bold">15+</div>
+                <div class="h5">Ani Experiență</div>
+            </div>
+            <div class="col-md-3">
+                <div class="display-4 fw-bold">50k+</div>
+                <div class="h5">Păsări Crescute</div>
+            </div>
+            <div class="col-md-3">
+                <div class="display-4 fw-bold">98%</div>
+                <div class="h5">Clienți Mulțumiți</div>
+            </div>
+            <div class="col-md-3">
+                <div class="display-4 fw-bold">100%</div>
+                <div class="h5">Natural</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="/images/ferma-noastra.jpg" alt="Ferma noastră" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-primary mb-4">Abonează-te la Newsletter</h2>
+                <p>Primește cele mai noi oferte și noutăți direct în inbox!</p>
+                <form>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control form-control-lg" placeholder="Adresa ta de email">
+                        <button class="btn btn-primary btn-lg" type="button">Abonare</button>
+                    </div>
+                    <small class="text-muted">Promitem să nu trimitem spam. Vei putea dezabona oricând.</small>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero-section {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .product-card {
+        transition: transform 0.3s ease;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+</style>

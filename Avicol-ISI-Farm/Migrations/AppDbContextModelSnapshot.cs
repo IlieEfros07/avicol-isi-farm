@@ -19,28 +19,7 @@ namespace Avicol_ISI_Farm.Migrations
                 .HasAnnotation("ProductVersion", "8.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Avicol_ISI_Farm.Models.OrderProduct", b =>
-                {
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("PriceAtOrder")
-                        .HasColumnType("decimal(65,30)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrderId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("OrderProducts");
-                });
-
-            modelBuilder.Entity("Avicol_ISI_Farm.Models.Orders", b =>
+            modelBuilder.Entity("Avicol_ISI_Farm.Models.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -68,6 +47,27 @@ namespace Avicol_ISI_Farm.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Avicol_ISI_Farm.Models.OrderProduct", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PriceAtOrder")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderProducts");
                 });
 
             modelBuilder.Entity("Avicol_ISI_Farm.Models.Product", b =>
@@ -136,9 +136,20 @@ namespace Avicol_ISI_Farm.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Avicol_ISI_Farm.Models.Order", b =>
+                {
+                    b.HasOne("Avicol_ISI_Farm.Models.User", "User")
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Avicol_ISI_Farm.Models.OrderProduct", b =>
                 {
-                    b.HasOne("Avicol_ISI_Farm.Models.Orders", "Order")
+                    b.HasOne("Avicol_ISI_Farm.Models.Order", "Order")
                         .WithMany("OrderProducts")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -155,18 +166,7 @@ namespace Avicol_ISI_Farm.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Avicol_ISI_Farm.Models.Orders", b =>
-                {
-                    b.HasOne("Avicol_ISI_Farm.Models.User", "User")
-                        .WithMany("Orders")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Avicol_ISI_Farm.Models.Orders", b =>
+            modelBuilder.Entity("Avicol_ISI_Farm.Models.Order", b =>
                 {
                     b.Navigation("OrderProducts");
                 });

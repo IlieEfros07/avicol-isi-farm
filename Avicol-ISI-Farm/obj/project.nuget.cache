@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mwKH0TbRLaQ=",
+  "dgSpecHash": "HJS4QggIsKs=",
   "success": true,
-  "projectFilePath": "C:\\dev\\Avicol-ISI-Farm\\Avicol-ISI-Farm\\Avicol-ISI-Farm.csproj",
+  "projectFilePath": "C:\\dev\\avicol-isi-farm\\Avicol-ISI-Farm\\Avicol-ISI-Farm.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rutiera\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\rutiera\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
